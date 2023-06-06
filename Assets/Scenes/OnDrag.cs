@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OnDrag : MonoBehaviour
@@ -9,7 +11,7 @@ public class OnDrag : MonoBehaviour
 
     // Start is called before the first frame update
     public GameObject prefab;
-
+    public TextMeshPro text;
     private bool check;
     Vector3 offset;
     private object collision;
@@ -39,10 +41,15 @@ public class OnDrag : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            int sum = Int32.Parse(text.text) +1;
+            text.text = sum.ToString(); 
             Destroy(collision.gameObject);
-
-            prefab.SetActive(true);
-            prefab.transform.position = transform.position;
+            if (prefab  != null)
+            {
+                prefab.SetActive(true);
+                prefab.transform.position = transform.position;
+            }
+            
         }
         
     }

@@ -21,7 +21,10 @@ public class OnBtn : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (prefab != null)
+        {
+            prefab.SetActive(true);
 
-        prefab.SetActive(true);
+        }
     }
 }
